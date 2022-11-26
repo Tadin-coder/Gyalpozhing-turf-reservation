@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+  <script src =  "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <body>
+    <h3><a class="btn btn-primary" href="adminRegister"><i class="fa-sharp fa-solid fa-user-plus"></i>Create New</a>Patient Details</h3>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">name</th>
+        <th scope="col">username</th>
+        <th scope="col">password</th>
+        <th scope="col">contact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% adminList.forEach(admin => { %>
+        <tr>
+        <th><%= admin._id %></th>
+        <td><%= admin.name %></td>
+        <td><%= admin.adminusername %></td>
+        <td><%= admin.adminpassword %></td>
+        <td><%= admin.admincontact %></td>
+        <td>
+          <a href="/adminEdit/<%= admin._id %>"><i class="fa-solid fa-pen-to-square"></i></a>
+          <a href="/delete2/<%= admin._id %>"><i class="fa-solid fa-trash"></i></a>
+        </td>
+          </tr>
+          <% }) %>
+    </tbody>
+  </table>
+  </body>
+</html>

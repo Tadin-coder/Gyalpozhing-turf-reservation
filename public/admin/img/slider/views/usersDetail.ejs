@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+  <script src =  "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <body>
+    <h3><a class="btn btn-primary" href="register"><i class="fa-sharp fa-solid fa-user-plus"></i>Create New</a>Patient Details</h3>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">email</th>
+        <th scope="col">password</th>
+        <th scope="col">Cpassword</th>
+        <th scope="col">name</th>
+        <th scope="col">date</th>
+        <th scope="col">month</th>
+        <th scope="col">year</th>
+        <th scope="col">gender</th>
+        <th scope="col">contact</th>
+        <th scope="col">contact2</th>
+        <th scope="col">fileName</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% usersList.forEach(user => { %>
+        <tr>
+        <th><%= user._id %></th>
+        <td><%= user.email %></td>
+        <td><%= user.password %></td>
+        <td><%= user.cpassword %></td>
+        <td><%= user.mem_name %></td>
+        <td><%= user.dd %></td>
+        <td><%= user.mm %></td>
+        <td><%= user.yyyy %></td>
+        <td><%= user.gender %></td>
+        <td><%= user.contactnum %></td>
+        <td><%= user.contactnum2 %></td>
+        <td><%= user.file_nm %></td>
+        <td>
+          <a href="/Patientedit/<%= user._id %>"><i class="fa-solid fa-pen-to-square"></i></a>
+          <a href="/delete/<%= user._id %>"><i class="fa-solid fa-trash"></i></a>
+        </td>
+          </tr>
+          <% }) %>
+    </tbody>
+  </table>
+  </body>
+</html>

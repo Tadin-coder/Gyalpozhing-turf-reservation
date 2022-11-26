@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	  <title>Gyalpozhing Turf Reservation</title>
+	  <link href="/admin/img/logo.png" rel="icon" />
+	    <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="/admin/css/bootstrap.min.css">
+	    <!----css3---->
+        <link rel="stylesheet" href="/admin/css/custom.css">
+
+
+		<!--google fonts -->
+	    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+
+	   <!--google material icon-->
+      <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
+
+  </head>
+  <body>
+
+
+
+<div class="wrapper">
+
+	  <div class="body-overlay"></div>
+
+	 <!-------sidebar--design------------>
+
+
+	 <div id="sidebar">
+	    <div class="sidebar-header">
+		<img src="/admin/img/logo.png" class="img-fluid"/>
+		</div>
+		<ul class="list-unstyled component m-0">
+		  <!-- <li>
+		  <a href="home.html" class="dashbord"><i class="material-icons">web_asset</i>Home</a>
+		  </li> -->
+
+		 
+
+		   <li>
+		  <a href="/dashboard">
+		  <i class="material-icons">group_add</i>User List
+		  </a>
+		  </li>
+
+		   <!-- <li>
+		  <a href="users.html">
+		  <i class="material-icons">remove_red_eye</i>Users List
+		  </a>
+		  </li> -->
+
+
+		   <li>
+		  <a href="/bookingList">
+		  <i class="material-icons">list</i>Booking List
+		  </a>
+		  </li>
+
+		  <li>
+			<a href="/feedback">
+			<i class="material-icons">grade</i>Feedbacks
+			</a>
+			</li>
+
+            <li>
+                <a href="myUpdate/<%= currentUser._id %>">
+                <i class="material-icons">person</i>Edit Profile
+                </a>
+                </li>
+      
+	 </div>
+
+   <!-------sidebar--design- close----------->
+
+
+
+      <!-------page-content start----------->
+
+      <div id="content">
+
+		  <!------top-navbar-start----------->
+		  <div class="top-navbar">
+			<div class="xd-topbar">
+				<div class="row">
+					<div class="col-2 col-md-1 col-lg-1 order-2 order-md-1 align-self-center">
+					   <div class="xp-menubar">
+						   <span class="material-icons text-white">signal_cellular_alt</span>
+					   </div>
+					</div>
+
+					<div class="col-md-5 col-lg-3 order-3 order-md-2">
+
+					</div>
+
+
+					<div class="col-10 col-md-6 col-lg-8 order-1 order-md-3">
+						<div class="xp-profilebar text-right">
+						   <nav class="navbar p-0">
+							  <ul class="nav navbar-nav flex-row ml-auto">
+
+
+<p><%= currentUser.name %></p>
+							  <li class="dropdown nav-item">
+								<a class="nav-link" href="#" data-toggle="dropdown">
+								 <img src="/admin/img/usericon.png"
+								 style="width: 40px; border-radius: 50%"/>
+								 <span class="xp-user-live"></span>
+								</a>
+								 <ul class="dropdown-menu small-menu">
+                                    <li><a href="/admincpass">
+										<span class="material-icons">key</span>
+										Changepassw
+										</a></li>
+									<li><a href="/admin-Logout">
+									<span class="material-icons">logout</span>
+									Logout
+									</a></li>
+									
+
+								 </ul>
+							  </li>
+
+
+							  </ul>
+						   </nav>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="xp-breadcrumbbar text-center">
+				   <h4 class="page-title">Admin Dashboard</h4>
+
+				</div>
+
+
+			</div>
+		 </div>
+
+
+
+<!-------complete html----------->
+
+
+
+
+
+
+     <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   <script src="/admin/js/jquery-3.3.1.slim.min.js"></script>
+   <script src="/admin/js/popper.min.js"></script>
+   <script src="/admin/js/bootstrap.min.js"></script>
+   <script src="/admin/js/jquery-3.3.1.min.js"></script>
+
+
+  <script type="text/javascript">
+       $(document).ready(function(){
+	      $(".xp-menubar").on('click',function(){
+		    $("#sidebar").toggleClass('active');
+			$("#content").toggleClass('active');
+		  });
+
+		  $('.xp-menubar,.body-overlay').on('click',function(){
+		     $("#sidebar,.body-overlay").toggleClass('show-nav');
+		  });
+
+	   });
+  </script>
+
+
+
+
+
+  </body>
+
+  </html>

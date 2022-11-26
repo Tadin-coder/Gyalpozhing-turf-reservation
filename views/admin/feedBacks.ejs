@@ -1,0 +1,89 @@
+<%- include("../partials/adminheader")-%>
+		      <div class="main-content">
+                <div class="row">
+                   <div class="col-md-12">
+                      <div class="table-wrapper">
+
+                      <div class="table-title">
+                        <div class="row">
+                            <div class="col-sm-6 p-0 flex justify-content-lg-start justify-content-center">
+                               <h2 class="ml-lg-2">Feedbacks</h2>
+                            </div>
+                            <div class="col-sm-6 p-0 flex justify-content-lg-end justify-content-center">
+                            </div>
+                        </div>
+                      </div>
+
+                      <table class="table table-striped table-hover">
+                         <thead>
+                            <tr>
+
+                           </label></th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Subject</th>
+                            <th>Detail</th>
+                            <th>Actions</th>
+                            </tr>
+                         </thead>
+
+                         <tbody>
+                          <%  Feedbacks.forEach(function(feed){ %>
+                             <tr>
+                                
+                               <th><%= feed.name %></th>
+                               <th><%= feed.email %></th>
+                               <th><%= feed.phone %></th>
+                               <th><%= feed.subject %> </th>
+                               <th><%= feed.details %></th>
+                               <th>
+                               <!-- <a href="#editEmployeeModal" class="edit" data-toggle="modal">
+                              <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+                              </a> -->
+                              <a href="#deleteFeed<%= feed._id %>" class="delete" data-toggle="modal">
+                              <i class="material-icons" data-toggle="tooltip" title="Delete"  style="font-size:26px;">&#xE872;</i>
+                              </a>
+                              <div class="modal fade" tabindex="-1" id="deleteFeed<%= feed._id %>" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title">Delete Feedback</h5>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>Are you sure you want to delete this Feedback?</p>
+                                      <p class="text-danger"><small>This action cannot be undone.</small></p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                      <a href="/deleteFeed/<%= feed._id %>">
+                                      <button type="button" class="btn btn-success">Delete</button></a>
+                                    </div>
+                                  </div>
+                                </div>
+                               </div>
+                               
+                            </th>
+                           
+                            </tr>
+                            <%  }) %>
+           <!-- delete -->
+
+                      <!--edit-modal end--------->
+
+
+
+
+                </div>
+             </div>
+
+
+
+
+
+     </div>
+
+</div>

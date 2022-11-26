@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+  <script src =  "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <body>
+    <h3><a class="btn btn-primary" href="receptionistRegister"><i class="fa-sharp fa-solid fa-user-plus"></i>Create New</a>Receptionist Details</h3>
+
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">name</th>
+        <th scope="col">username</th>
+        <th scope="col">password</th>
+        <th scope="col">contact</th>
+        <th scope="col">gender</th>
+        <!-- <th scope="col">department</th> -->
+        <th scope="col">employid</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% recepList.forEach(recep => { %>
+        <tr>
+        <th><%= recep._id %></th>
+        <td><%= recep.recepname %></td>
+        <td><%= recep.recepusername %></td>
+        <td><%= recep.receppassword %></td>
+        <td><%= recep.recepcontact %></td>
+        <td><%= recep.recepgender %></td>
+        <!-- <td><%= recep.staffdepartment %></td> -->
+        <td><%= recep.recepemployid %></td>
+        <td>
+          <a href="/recepEdit/<%= recep._id %>"><i class="fa-solid fa-pen-to-square"></i></a>
+          <a href="/delete3/<%= recep._id %>"><i class="fa-solid fa-trash"></i></a>
+        </td>
+          </tr>
+          <% }) %>
+    </tbody>
+  </table>
+  </body>
+</html>

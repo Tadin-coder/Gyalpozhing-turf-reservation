@@ -1,0 +1,110 @@
+<%- include("../partials/logshead") -%> <%- include("../partials/userheader")
+-%>
+
+<div
+  class="register-photo"
+  style="background-color: #ffffff; margin-top: px; margin-bottom: px"
+>
+  <h6 style="text-align: center; font-family: roboto">
+    Simply pay 50% in advance to reserve.
+  </h6>
+  <br />
+  <br />
+
+  <div class="form-container">
+    <div
+      class="image-holder"
+      style="
+        background-image: url('asset/img/log1.png');
+        background-size: cover;
+        background-position: center;
+      "
+    ></div>
+    <form
+      action="bookTurf"
+      method="post"
+      style="border: 1px solid; border-radius: 15px"
+      ;
+    >
+      <h2 class="text-center" style="font-family: Roboto, sans-serif">
+        <strong>Payment</strong>
+      </h2>
+      <% if (typeof errorMessage !== "undefined") { %>
+      <p role="alert"><%= errorMessage %></p>
+      <% } %> <% if (typeof successMessage !== "undefined") { %>
+      <p role="alert"><%= successMessage %></p>
+      <% } %>
+      <div class="form-group">
+        <label>Date</label>
+        <input type="date" class="form-control" name="date" />
+        <p style="color: red">
+          <%= (typeof errors!="undefined" && typeof errors.date!="undefined") ?
+          errors.date.msg: ""%>
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label>Time</label>
+        <select class="form-control" name="time">
+          <option selected="">12:00 - 2:00</option>
+          <option selected="">2:00 - 4:00</option>
+          <option selected="">4:00 - 6:00</option>
+          <option selected="">6:00 - 8:00</option>
+          <option selected="">8:00 - 10:00</option>
+          <option selected="">10:00 - 12:00</option>
+        </select>
+        <p style="color: red">
+          <%= (typeof errors!="undefined" && typeof errors.time!="undefined") ?
+          errors.time.msg: ""%>
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label>AM/PM</label>
+        <select class="form-control" name="day">
+          <option>AM</option>
+          <option>PM</option>
+        </select>
+
+        <p style="color: red">
+          <%= (typeof errors!="undefined" && typeof errors.day!="undefined") ?
+          errors.day.msg: ""%>
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label>Journal No.</label>
+        <input type="Number" class="form-control" name="jrnlNo" />
+        <p style="color: red">
+          <%= (typeof errors!="undefined" && typeof errors.jrnlNo!="undefined")
+          ? errors.jrnlNo.msg: ""%>
+        </p>
+        <div class="form-group"></div>
+
+        <p style="color: black">
+          <small
+            >Account Holder: Gyalpozhing Turf<br />
+
+            Account Number: 208834312</small
+          >
+        </p>
+      </div>
+      <div class="form-group"></div>
+      <div class="form-group">
+        <button
+          class="btn btn-block"
+          type="submit"
+          style="
+            background-color: #4caf50;
+            font-family: Roboto, sans-serif;
+            color: #fff;
+          "
+        >
+          Reserve Now
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<%- include("../partials/footer") -%>

@@ -1,0 +1,41 @@
+
+<%- include("../partials/adminheader")-%>
+<form action="/myUpdate/<%= user._id %>" method="post">
+  <div>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">User Update</h5>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" name="name"  value="<%= user.name %>" />
+           
+          </div>
+
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="form-control" name="username"  value="<%= user.username %>"/>
+          
+            
+          </div>
+
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="number" class="form-control" name="phone"  value="<%= user.phone %>"/>
+           
+          </div>
+
+          <div style="margin-right: 180px" class="modal-footer">
+            <button type="submit" class="btn btn-success">Save Changes</button>
+          </div>
+           
+          </div>
+
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</form>

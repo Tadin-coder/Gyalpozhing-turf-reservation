@@ -1,0 +1,75 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>Gyalpozhing Turf Reservation</title>
+	  <link href="/admin/img/logo.png" rel="icon" />
+	    <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="/admin/css/bootstrap.min.css">
+	    <!----css3---->
+        <link rel="stylesheet" href="/admin/css/custom.css">
+
+
+		<!--google fonts -->
+	    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+
+	   <!--google material icon-->
+      <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
+
+  </head>
+  <body>
+
+
+<form action="/adminLogin" method="post">
+  <% if (typeof errorMessage !== "undefined") { %>
+    <p role="alert"><%= errorMessage %></p>
+    <% } %> <% if (typeof successMessage !== "undefined") { %>
+    <p role="alert"><%= successMessage %></p>
+    <% } %>
+  <div>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Welcome Admin</h5>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="form-control" name="username" />
+          </div>
+          <p style="color: red">
+            <%= (typeof errors!="undefined" && typeof
+            errors.username!="undefined") ? errors.username.msg: ""%>
+          </p>
+
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" name="password" />
+            <br />
+            <span style="color: red; font: size 14px" id="Err"> </span>
+          </div>
+          <p style="color: red">
+            <%= (typeof errors!="undefined" && typeof
+            errors.password!="undefined") ? errors.password.msg: ""%>
+          </p>
+
+          <div style="margin-right: 180px" class="modal-footer">
+            <button type="submit" class="btn btn-success">Login</button>
+          </div>
+           
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</form>
+  </body>
+</html>

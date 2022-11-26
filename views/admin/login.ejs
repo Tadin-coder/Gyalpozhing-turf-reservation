@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../login/login.css" />
+    <title>Gyalpozhing Turf Reservation</title>
+    <link href="/admin/img/logo.png" rel="icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        background: #c9ccd1;
+      }
+      .form-style input {
+        border: 0;
+        height: 50px;
+        border-radius: 0;
+        border-bottom: 1px solid #ebebeb;
+      }
+      .form-style input:focus {
+        border-bottom: 1px solid #007bff;
+        box-shadow: none;
+        outline: 0;
+        background-color: #ebebeb;
+      }
+      .sideline {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #ccc;
+      }
+      button {
+        height: 50px;
+      }
+      .sideline:before,
+      .sideline:after {
+        content: '';
+        border-top: 1px solid #ebebeb;
+        margin: 0 20px 0 0;
+        flex: 1 0 20px;
+      }
+
+      .sideline:after {
+        margin: 0 0 0 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row m-5 no-gutters shadow-lg">
+        <div class="col-md-6 d-none d-md-block">
+          <img
+            src="/asset/img/gtr.png"
+            class="img-fluid"
+            style="min-height: 100%"
+          />
+        </div>
+        <div class="col-md-6 bg-white p-5">
+          <h4 class="pb-3">Welcome Admin</h4>
+          <% if (typeof errorMessage !== "undefined") { %>
+          <p class="alert alert-danger" role="alert" color="red">
+            <%= errorMessage %>
+          </p>
+          <% } %> <% if (typeof successMessage !== "undefined") { %>
+          <p class="alert alert-success" role="alert"><%= successMessage %></p>
+          <% } %>
+          <div class="form-style">
+            <form action="/adminLogin" method="post">
+              <div class="form-group pb-3">
+                <input
+                  type="email"
+                  placeholder="Email"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  name="username"
+                />
+                <p style="color: red">
+                  <%= (typeof errors!="undefined" && typeof
+                  errors.username!="undefined") ? errors.username.msg: ""%>
+                </p>
+              </div>
+
+              <div class="form-group pb-3">
+                <input
+                  type="password"
+                  placeholder="Password"
+                  class="form-control"
+                  id="exampleInputPassword1"
+                  name="password"
+                />
+                <p style="color: red">
+                  <%= (typeof errors!="undefined" && typeof
+                  errors.password!="undefined") ? errors.password.msg: ""%>
+                </p>
+              </div>
+
+              <div class="pb-2">
+                <button
+                  type="submit"
+                  class="btn btn-success w-100 font-weight-bold mt-2"
+                >
+                  Login
+                </button>
+              </div>
+              <div class="d-flex align-items-center justify-content-between">
+                <div><a href="/aforgotPass">Forgot Password?</a></div>
+              </div>
+            </form>
+            <div class="sideline">Gyalpozhing-Turf-Reservation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

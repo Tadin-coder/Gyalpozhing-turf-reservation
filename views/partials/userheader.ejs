@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Gyalpozhing Turf Reservation</title>
+    <link href="/admin/img/logo.png" rel="icon" />
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="/assets/img/favicon.png" rel="icon" />
+    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link href="/assets/vendor/animate.css/animate.min.css" rel="stylesheet" />
+    <link
+      href="/assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/vendor/boxicons/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <script src="dist/jquery.modal-wizard.min.js"></script>
+
+    <!-- Template Main CSS File -->
+    <link href="/assets/css/style.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- =======================================================
+  * Template Name: Delicious - v4.9.1
+  * Template URL: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+    <style>
+      .dropbtn {
+        color: white;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .dropbtn:hover,
+      .dropbtn:focus {
+        background-color: #f1f4f6;
+      }
+
+      .dropdown {
+        position: relative;
+        display: inline-block;
+        margin-left: 20px;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      .dropdown a:hover {
+        background-color: #ddd;
+      }
+
+      .show {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header
+      id="header"
+      class="fixed-top d-flex align-items-center header-transparent"
+    >
+      <div
+        class="container-fluid container-xl d-flex align-items-center justify-content-between"
+      >
+        <div class="logo me-auto">
+          <!-- Uncomment below if you prefer to use an image logo -->
+          <a href="/"
+            ><img src="/assets/img/1.png" alt="" class="img-fluid"
+          /></a>
+        </div>
+        <% if(!currentUser){ %>
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li><a class="nav-link scrollto active" href="/">Home</a></li>
+            <li>
+              <a class="nav-link scrollto" href="/schedule">Schedule</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="/contact">Contact</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="userRegister">Register</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="/userlogin">Login</a>
+            </li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <% }else{ %>
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li><a class="nav-link scrollto active" href="/">Home</a></li>
+            <li>
+              <a class="nav-link scrollto" href="/schedule">Schedule</a>
+            </li>
+            <li>
+              <a
+                class="nav-link scrollto"
+                href="/myBookings/<%= currentUser._id %>"
+                >My Booking
+              </a>
+            </li>
+            <li>
+              <div class="dropdown">
+                <img
+                  src="/assets/img/user.png"
+                  style="width: 40px; border-radius: 50%"
+                  onclick="myFunction()"
+                  class="dropbtn"
+                />
+
+                <div
+                  id="myDropdown"
+                  class="dropdown-content"
+                  style="border-radius: 6px"
+                >
+                  <a href="/userUpdate">Update Profile</a>
+                  <a href="/cpass">Change Password</a>
+                  <a href="/logout">Logout</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <% } %>
+        <!-- .navbar -->
+      </div>
+    </header>
+    <!-- End Header -->
+  </body>
+  <script>
+    /* When the user clicks on the button, 
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+      document.getElementById('myDropdown').classList.toggle('show');
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName('dropdown-content');
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    };
+  </script>
+</html>

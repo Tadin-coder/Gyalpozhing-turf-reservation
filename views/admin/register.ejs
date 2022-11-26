@@ -1,0 +1,114 @@
+<%- include("../partials/adminheader")-%>
+<form action="/register" method="post">
+  <div>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add User</h5>
+
+          <div>
+            <% if (typeof errorMessage !== "undefined") { %>
+            <p role="alert"><%= errorMessage %></p>
+            <% } %><% if (typeof error !== "undefined") { %>
+            <span style="color: red; font: size 14px" id="Err">
+              <%= error %></span
+            >
+            <% } %> <% if (typeof successMessage !== "undefined") { %>
+            <p role="alert"><%= successMessage %></p>
+            <% } %>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Name</label>
+            <input
+              type="text"
+              class="form-control"
+              pattern="[a-zA-Z|\s]{5,}"
+              name="name"
+              title="Your name should contain text only"
+            />
+            <span style="color: red; font: size 14px" id="Err"> </span>
+            <p style="color: red">
+              <%= (typeof errors!="undefined" && typeof
+              errors.name!="undefined") ? errors.name.msg: ""%>
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              class="form-control"
+              pattern="[a-z0-9]+@gmail.com"
+              title="Email domain should be (gmail.com)"
+              name="username"
+            />
+            <span style="color: red; font: size 14px" id="Err"> </span>
+            <p style="color: red">
+              <%= (typeof errors!="undefined" && typeof
+              errors.username!="undefined") ? errors.username.msg: ""%>
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input
+              type="tel"
+              class="form-control"
+              pattern="[1|7]{1}[7]{1}[0-9]{6}"
+              title="Should start with (77/17)"
+              name="phone"
+            />
+            <span style="color: red; font: size 14px" id="Err"> </span>
+            <p style="color: red">
+              <%= (typeof errors!="undefined" && typeof
+              errors.phone!="undefined") ? errors.phone.msg: ""%>
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" name="password" />
+            <span style="color: red; font: size 14px" id="Err"> </span>
+            <p style="color: red">
+              <%= (typeof errors!="undefined" && typeof
+              errors.password!="undefined") ? errors.password.msg: ""%>
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label>ConfirmPassword</label>
+            <input
+              type="password"
+              class="form-control"
+              name="confirmPassword"
+            />
+            <span style="color: red; font: size 14px" id="Err"> </span>
+            <p style="color: red">
+              <%= (typeof errors!="undefined" && typeof
+              errors.confirmPassword!="undefined") ? errors.confirmPassword.msg:
+              ""%>
+            </p>
+          </div>
+
+          <!-- <div class="form-group">
+    <label>Department</label>
+    <input type="text" class="form-control" required>
+    </div>
+    <div class="form-group">
+    <label>Phone Number</label>
+    <input type="text" class="form-control" required>
+    </div>
+    <div class="form-group">
+    <label>Password</label>
+    <input type="text" class="form-control" required>
+    </div> -->
+        </div>
+        <div style="margin-right: 180px" class="modal-footer">
+          <button type="submit" class="btn btn-success">Add User</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+<body>
+    <h3><a class="btn btn-primary" href="ChamberUpdate "><i class="fa-sharp fa-solid fa-user-plus"></i>Create New</a>My Report</h3>
+
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <!-- <th scope="col">id</th> -->
+                <th scope="col">username</th>
+                <th scope="col">chamberNo</th>
+                <th scope="col">disease</th>
+                <th scope="col">description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% myrecord.forEach(report => { %>
+                <tr>
+                    <!-- <th><%= report._id %></th> -->
+                    <td>
+                        <%= report.rusername %>
+                    </td>
+                    <td>
+                        <%= report.chamber %>
+                    </td>
+                    <td>
+                        <%= report.rdisease %>
+                    </td>
+                    <td>
+                        <%= report.rdescription %>
+                    </td>
+                    <!-- <td>
+          <a href="/reportedit/<%= report._id %>"><i class="fa-solid fa-pen-to-square"></i></a>
+          <a href="/delete4/<%= report._id %>"><i class="fa-solid fa-trash"></i></a>
+        </td> -->
+                </tr>
+                <% }) %>
+        </tbody>
+    </table>
+
+</body>
+
+</html>

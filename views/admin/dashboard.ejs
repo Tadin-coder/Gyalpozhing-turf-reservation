@@ -1,0 +1,238 @@
+<%- include("../partials/adminheader")-%>
+<div class="main-content">
+    <div class="row">
+       <div class="col-md-12">
+          <div class="table-wrapper">
+
+          <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6 p-0 flex justify-content-lg-start justify-content-center">
+                   <h2 class="ml-lg-2">User List</h2>
+                </div>
+                <div class="col-sm-6 p-0 flex justify-content-lg-end justify-content-center">
+                  <a href="/register" class="btn btn-success" >
+                  <i class="material-icons">&#xE147;</i>
+                  <span>Add New User</span>
+                  </a>
+
+                </div>
+            </div>
+          </div>
+
+          <table class="table table-striped table-hover">
+             <thead>
+                <tr>
+                <th><span class="custom-checkbox">
+                </th>
+                <th>Name</th>
+                <th>Email Address</th>
+                <th>Phone</th>
+                <th>MakeAdmin</th>
+                <th>Actions</th>
+                </tr>
+             </thead>
+
+             
+             <tbody>
+                <% Details.forEach(function(user){ %>
+                 <tr>
+                    
+                <th><span class="custom-checkbox">
+           </th>
+                <th><%= user.name %></th>
+                <th><%= user.username %></th>
+                <th><%= user.phone %></th>
+                <th>
+                    <a href="#makeAdmin<%= user._id %>" data-toggle="modal">
+                        <i class="material-icons" style="font-size:26px">taskalt</i>
+                        </a>
+                       <!-- Make Admin--> 
+                       <div class="modal fade" tabindex="-1" id="makeAdmin<%= user._id %>" role="dialog">
+                        <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title">Make Admin</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <p>Are you sure you want to make this user a admin?</p>
+                        <p class="text-danger"><small>This action cannot be undone.</small></p>
+                          </div>
+                          <div class="modal-footer">
+                            
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <form action="/makeAdmin" method="POST">
+                                <button
+                                  name="submit"
+                                  value="Admin <%=user._id%>"
+                                  type="submit"
+                                  class="btn btn-success"
+                                >
+                                  makeAdmin
+                                </button>
+                                
+                              </form>
+                    
+                          </div>
+                        </div>
+                        
+                        </div>
+                       
+                    </div><div class="modal fade" tabindex="-1" id="makeAdmin" role="dialog">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Make Admin</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to Make this user a Admin</p>
+    <p class="text-danger"><small>this action Cannot be Undone,</small></p>
+      </div>
+      <div class="modal-footer">
+        
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <form action="/makeAdmin" method="POST">
+            <button
+              name="submit"
+              value="Admin <%=user._id%>"
+              type="submit"
+              class="btn btn-success"
+            >
+              makeAdmin
+            </button>
+            
+          </form>
+
+      </div>
+    </div>
+    
+    </div>
+    </div>
+                      
+                </th>
+                <th>
+                   <a href="#edit<%= user._id %>" class="edit" data-toggle="modal">
+                  <i class="material-icons" data-toggle="tooltip" title="Edit" style="font-size:20px">&#xE254;</i>
+                  </a>
+<div class="modal fade" tabindex="-1" id="edit<%= user._id %>" role="dialog">
+ <form action="/adminUpdate/<%= user._id %>"
+        method="post">
+    
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+    <h5 class="modal-title">Edit User</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    <div class="modal-body">
+    <div class="form-group">
+    <div class="form-group">
+       <label>Name</label>
+       <input type="text" class="form-control" name="name" value="<%= user.name %>" required>
+    </div>
+    <div class="form-group">
+       <label>Email</label>
+       <input type="text" class="form-control" name="username" value="<%= user.username %>"  required>
+    </div>
+    <div class="form-group">
+       <label>Contact</label>
+       <input type="text" class="form-control" name="phone" value="<%= user.phone %>" required>
+    </div>
+    
+    </div>
+    <div class="modal-footer">
+    
+    <button type="submit" class="btn btn-success">Save Changes</button> 
+    </div>
+    </div>
+    </div>
+    </div>
+       
+        </form>
+    </div>
+    
+
+                  <a href="#delete<%= user._id %>" class="delete" data-toggle="modal">
+                  <i class="material-icons" data-toggle="tooltip" title="Delete" style="font-size:20px">&#xE872;</i>
+                  </a>
+                  <div class="modal fade" tabindex="-1" id="delete<%= user._id %>" role="dialog">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Delete User</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p>Are you sure you want to delete this User(<%= user.name %>)</p>
+                    <p class="text-danger"><small>this action Cannot be Undone,</small></p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <a href="/deleteuser/<%= user._id %>">
+                        <button type="button" class="btn btn-success">Delete</button></a>
+                      </div>
+                    </div>
+                    
+                    </div>
+                    </div>
+                </th>
+              
+            </tr>
+            <% }) %>
+
+
+
+
+
+             </tbody>
+
+                                       <!----add-modal start--------->
+
+              <!----edit-modal end--------->
+    
+          <!----edit-modal start--------->
+
+
+             
+             
+
+          </table>
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+       </div>
+
+
+
+ </div>
+
+<!------main-content-end----------->
+
+
+
+<!----footer-design------------->
+
+
+
+
+</div>
+
+</div>

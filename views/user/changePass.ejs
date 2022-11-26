@@ -1,0 +1,271 @@
+<%- include("../partials/logshead") -%>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Gyalpozhing Turf Reservation</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="/assets/img/favicon.png" rel="icon" />
+    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link href="/assets/vendor/animate.css/animate.min.css" rel="stylesheet" />
+    <link
+      href="/assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/vendor/boxicons/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="/assets/css/style.css" rel="stylesheet" />
+
+    <!-- =======================================================
+  * Template Name: Delicious - v4.9.1
+  * Template URL: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+    <style>
+      .dropbtn {
+        color: white;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .dropbtn:hover,
+      .dropbtn:focus {
+        background-color: #f1f4f6;
+      }
+
+      .dropdown {
+        position: relative;
+        display: inline-block;
+        margin-left: 20px;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      .dropdown a:hover {
+        background-color: #ddd;
+      }
+
+      .show {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header
+      id="header"
+      class="fixed-top d-flex align-items-center header-transparent"
+    >
+      <div
+        class="container-fluid container-xl d-flex align-items-center justify-content-between"
+      >
+        <div class="logo me-auto">
+          <!-- Uncomment below if you prefer to use an image logo -->
+          <a href="index.html"
+            ><img src="/assets/img/1.png" alt="" class="img-fluid"
+          /></a>
+        </div>
+        <% if(!currentUser){ %>
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li><a class="nav-link scrollto active" href="/">Home</a></li>
+            <li>
+              <a class="nav-link scrollto" href="/schedule">Schedule</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="/contact">Contact</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="userRegister">Register</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="/userlogin">Login</a>
+            </li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <% }else{ %>
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li><a class="nav-link scrollto active" href="/">Home</a></li>
+            <li>
+              <a class="nav-link scrollto" href="/schedule">Schedule</a>
+            </li>
+            <li>
+              <a
+                class="nav-link scrollto"
+                href="/myBookings/<%= currentUser._id %>"
+                >My Booking
+              </a>
+            </li>
+            <li>
+              <div class="dropdown">
+                <img
+                  src="/assets/img/user.png"
+                  style="width: 40px; border-radius: 50%"
+                  onclick="myFunction()"
+                  class="dropbtn"
+                />
+
+                <div id="myDropdown" class="dropdown-content">
+                  <a href="/userUpdate">Update Profile</a>
+                  <a href="/cpass">ChangePass</a>
+                  <a href="/logout">Logout</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <% } %>
+        <!-- .navbar -->
+      </div>
+    </header>
+    <!-- End Header -->
+  </body>
+</html>
+
+<div class="register-photo" style="background-color: #ffffff; margin-top: px">
+  <div class="form-container" id="loginform">
+    <div
+      class="image-holder"
+      style="
+        background-image: url('asset/img/log1.png');
+        background-position: center;
+      "
+    ></div>
+    <form
+      action="/changepassword"
+      method="post"
+      style="border: 1px solid; border-radius: 15px"
+      ;
+    >
+      <div>
+        <% if (typeof errorMessage !== "undefined") { %>
+        <p role="alert"><%= errorMessage %></p>
+        <% } %><% if (typeof error !== "undefined") { %>
+        <span style="color: red; font: size 14px" id="Err"> <%= error %></span>
+        <% } %> <% if (typeof successMessage !== "undefined") { %>
+        <p role="alert"><%= successMessage %></p>
+        <% } %>
+      </div>
+      <h2 class="text-center" style="font-family: Roboto, sans-serif">
+        <strong>Password Change</strong>
+      </h2>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="text" class="form-control" name="username" />
+        <p style="color: red">
+          <%= (typeof errors!="undefined" && typeof
+          errors.username!="undefined") ? errors.username.msg: ""%>
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label>Old Password</label>
+        <input type="password" class="form-control" name="oldpassword" />
+      </div>
+
+      <div class="form-group">
+        <label>New Password</label>
+        <input type="password" class="form-control" name="newpassword" />
+        <p style="color: red">
+          <%= (typeof errors!="undefined" && typeof
+          errors.newpassword!="undefined") ? errors.newpassword.msg: ""%>
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label>Confirm Password</label>
+        <input type="password" class="form-control" name="confirmPassword" />
+        <p style="color: red">
+          <%= (typeof errors!="undefined" && typeof
+          errors.confirmPassword!="undefined") ? errors.confirmPassword.msg:
+          ""%>
+        </p>
+      </div>
+
+      <div class="form-group">
+        <button
+          class="btn btn-block"
+          type="submit"
+          style="
+            background-color: #4caf50;
+            font-family: Roboto, sans-serif;
+            color: #fff;
+          "
+        >
+          Change
+        </button>
+      </div>
+      <hr />
+    </form>
+  </div>
+</div>
+<script>
+  /* When the user clicks on the button, 
+  toggle between hiding and showing the dropdown content */
+  function myFunction() {
+    document.getElementById('myDropdown').classList.toggle('show');
+  }
+
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function (event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName('dropdown-content');
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  };
+</script>
+
+<%- include("../partials/footer") -%>
